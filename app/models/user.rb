@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  before_validation :set_name, on: :create
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -6,4 +8,10 @@ class User < ApplicationRecord
   has_many :events
 
   validates :name, presence: true, length: {maximum: 35}
+
+  private
+
+  def set_name
+    self.name = "Комрад №#{rand(999)}" if name.blank?
+  end
 end

@@ -4,21 +4,21 @@ class EventsController < ApplicationController
   before_action :set_current_user_event, only: [:edit, :update, :destroy]
 
   def index
-    @events = current_user.events.build
+    @events = Event.all
   end
 
   def show
   end
 
   def new
-    @event = current_user.events.build(event_params)
+    @events = current_user.events.build
   end
 
   def edit
   end
 
   def create
-    @event = Event.new(event_params)
+    @event = current_user.events.build(event_params)
 
     if @event.save
       redirect_to @event, notice: 'Event was successfully created.'

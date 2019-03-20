@@ -24,3 +24,8 @@ ru:
       destroyed: 'Событие удалено'
     users:
       updated: 'Информация в профиле обновлена'
+  errors:
+    one: "%{count} ошибка"
+    few: "%{count} ошибки"
+    many: "%{count} ошибок"
+

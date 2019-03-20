@@ -28,4 +28,6 @@ ru:
     one: "%{count} ошибка"
     few: "%{count} ошибки"
     many: "%{count} ошибок"
-
+  confirm:
+    destroy:
+      event: 'Вы уверены, что хотите удалить это событие?'

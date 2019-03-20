@@ -4,9 +4,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.3'
 
 gem 'devise', '>= 4.5.0'
+gem 'devise-i18n'
 gem 'jquery-rails'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
+gem 'russian'
 gem 'twitter-bootstrap-rails'
 gem 'uglifier', '>= 1.3.0'
 

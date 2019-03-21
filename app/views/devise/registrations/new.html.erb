@@ -13,7 +13,7 @@
       <div class="field">
         <%= f.label :password %>
         <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <em>(не менее <%= @minimum_password_length %> символов)</em>
         <% end %><br/>
         <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
       </div>
@@ -24,7 +24,7 @@
       </div>
 
       <div class="actions">
-        <%= f.submit "Sign up", class: 'buffer-both btn btn-primary' %>
+        <%= f.submit "Зарегистрироваться", class: 'buffer-both btn btn-primary' %>
       </div>
     <% end %>
   </div>

@@ -6,6 +6,7 @@ class Subscription < ApplicationRecord
   validates :user_email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }, unless: -> { user.present? }
   validates :user, uniqueness: {scope: :event_id}, if: -> { user.present? }
   validates :user_email, uniqueness: {scope: :event_id}, unless: -> { user.present? }
+  validate :email_availability, unless: -> { user.present? }
 
   def user_name
     user.present? ? user.name : super
@@ -13,5 +14,9 @@ class Subscription < ApplicationRecord
 
   def user_email
     user.present? ? user.email : super
+  end
+
+  def email_availability
+    errors.add(:user_email, :unavailable) if User.exists?(email: user_email)
   end
 end

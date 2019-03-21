@@ -17,6 +17,12 @@ ru:
         address: 'Место проведения'
         datetime: 'Дата и время'
         description: 'Описание'
+    errors:
+      models:
+        subscription:
+          attributes:
+            user_email:
+              unavailable: 'занят зарегистрированным пользователем'
   controllers:
     events:
       created: 'Событие успешно создано'

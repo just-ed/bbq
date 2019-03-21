@@ -24,10 +24,14 @@ ru:
       destroyed: 'Событие удалено'
     users:
       updated: 'Информация в профиле обновлена'
+    comments:
+      destroyed: 'Комментарий удален'
+      created: 'Ваш комментарий добавлен'
+      error: 'Ошибка с комментарием'
   errors:
-    one: "%{count} ошибка"
-    few: "%{count} ошибки"
-    many: "%{count} ошибок"
-  confirm:
-    destroy:
-      event: 'Вы уверены, что хотите удалить это событие?'
+    one: '%{count} ошибка'
+    few: '%{count} ошибки'
+    many: '%{count} ошибок'
+  destroy_confirm:
+    event: 'Вы уверены, что хотите удалить это событие?'
+    comment: 'Вы уверены, что хотите удалить этот комментарий?'

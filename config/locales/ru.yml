@@ -6,17 +6,21 @@ ru:
     models:
       user: 'Пользователь'
       event: 'Событие'
+      photo: 'Фотография'
     attributes:
       user:
         email: 'Email'
         name: 'Имя'
         password: 'Пароль'
         password_confirmation: 'Подтверждение пароля'
+        avatar: 'Аватарка'
       event:
         title: 'Название'
         address: 'Место проведения'
         datetime: 'Дата и время'
         description: 'Описание'
+      photo:
+        photo: 'Фотография'
     errors:
       models:
         subscription:
@@ -39,6 +43,10 @@ ru:
       destroyed: 'Участник отписан'
       error: 'Подписка/отписка не сработала'
       author_error: 'Вы не можете подписаться на Ваше событие'
+    photos:
+      error: 'Что-то не так с фоткой'
+      created: 'Вы добавили фотографию к событию'
+      destroyed: 'Вы удалили фотку'
   errors:
     one: '%{count} ошибка'
     few: '%{count} ошибки'

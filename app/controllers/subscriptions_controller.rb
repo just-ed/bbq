@@ -10,6 +10,8 @@ class SubscriptionsController < ApplicationController
       flash.now[:alert] = I18n.t('controllers.subscriptions.author_error')
       render 'events/show'
     elsif @new_subscription.save
+      EventMailer.subscription(@event, @new_subscription).deliver_now
+
       redirect_to @event, notice: I18n.t('controllers.subscriptions.created')
     else
       render 'events/show', alert: I18n.t('controllers.subscriptions.error')

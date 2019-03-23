@@ -21,4 +21,14 @@
     <%= f.submit 'Сохранить', class: 'btn btn-primary' %>
     или <%= link_to 'вернуться', :back %>
   </div>
+
+  <p>
+    <%= link_to 'Сменить пароль', edit_user_registration_path %>
+  </p>
+
+  <%= link_to 'Удалить аккаунт', @user,
+              :method => :delete,
+              data: { confirm: t('destroy_confirm.user') },
+              class: 'buffer-both btn btn-danger' %>
+
 <% end %>

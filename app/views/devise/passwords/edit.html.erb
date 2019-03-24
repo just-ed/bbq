@@ -9,20 +9,20 @@
       <%= f.hidden_field :reset_password_token %>
 
       <div class="field">
-        <%= f.label :password, "New password" %><br />
+        <%= f.label :password, "Новый пароль" %>
         <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+          <em>(не менее <%= @minimum_password_length %> символов)</em><br />
         <% end %>
         <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "form-control" %>
       </div>
 
       <div class="field">
-        <%= f.label :password_confirmation, "Confirm new password" %><br />
+        <%= f.label :password_confirmation, "Подтвердите новый пароль" %><br />
         <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
       </div>
 
-      <div class="actions buffer-top">
-        <%= f.submit "Change my password", class: 'btn btn-primary' %>
+      <div class="actions buffer-both">
+        <%= f.submit "Изменить пароль", class: 'btn btn-primary' %>
       </div>
     <% end %>
   </div>

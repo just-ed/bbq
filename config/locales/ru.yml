@@ -19,6 +19,7 @@ ru:
         address: 'Место проведения'
         datetime: 'Дата и время'
         description: 'Описание'
+        pincode: 'Пин-код доступа'
       photo:
         photo: 'Фотография'
     errors:
@@ -32,6 +33,7 @@ ru:
       created: 'Событие успешно создано'
       updated: 'Событие успешно обновлено'
       destroyed: 'Событие удалено'
+      wrong_pincode: 'Неверный пинкод'
     users:
       updated: 'Информация в профиле обновлена'
     comments:

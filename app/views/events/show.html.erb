@@ -50,8 +50,16 @@
 
         </div>
         <div class="buffer-both">
-          <%= render partial: 'comments/comment',
-                     collection: @event.comments.except(@new_comment) %>
+          <button class="btn btn-link" data-toggle="collapse" href="#collapseComments" role="button"
+             aria-expanded="false" aria-controls="collapseComments">
+            Показать комментарии
+          </button>
+
+          <div class="collapse" id="collapseComments">
+              <%= render partial: 'comments/comment',
+                         collection: @event.comments.except(@new_comment) %>
+          </div>
+
         </div>
       </div>
     </div>

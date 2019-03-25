@@ -51,31 +51,33 @@
         </div>
         <div class="buffer-both">
           <button class="btn btn-link" data-toggle="collapse" href="#collapseComments" role="button"
-             aria-expanded="false" aria-controls="collapseComments">
+                  aria-expanded="false" aria-controls="collapseComments">
             Показать комментарии
           </button>
 
           <div class="collapse" id="collapseComments">
-              <%= render partial: 'comments/comment',
-                         collection: @event.comments.except(@new_comment) %>
+            <%= render partial: 'comments/comment',
+                       collection: @event.comments.except(@new_comment) %>
           </div>
 
         </div>
       </div>
     </div>
 
-    <div class="col-md-4 bg-div">
-      <div class="event-owner">
-        <h4>Зовет:</h4>
-        <p><%= render partial: 'users/user', object: @event.user %></p>
-      </div>
-      <div class="event-subscriptions">
-        <h4>Пойдут:</h4>
-        <div>
-          <p>
-            <%= render partial: 'subscriptions/subscription',
-                       collection: @event.subscriptions.except(@new_subscription) %>
-          </p>
+    <div class="col-md-4">
+      <div class="bg-div">
+        <div class="event-owner">
+          <h4>Зовет:</h4>
+          <p><%= render partial: 'users/user', object: @event.user %></p>
+        </div>
+        <div class="event-subscriptions">
+          <h4>Пойдут:</h4>
+          <div>
+            <p>
+              <%= render partial: 'subscriptions/subscription',
+                         collection: @event.subscriptions.except(@new_subscription) %>
+            </p>
+          </div>
         </div>
       </div>
       <% if @event.user != current_user %>

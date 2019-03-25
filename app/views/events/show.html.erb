@@ -45,7 +45,7 @@
 
       <div class="event-comments">
         <% unless @event.comments.except(@new_comment).blank? %>
-          <div class="buffer-both">
+          <div class="buffer-top">
             <button class="btn btn-link" data-toggle="collapse" href="#collapseComments" role="button"
                     aria-expanded="false" aria-controls="collapseComments">
               Показать комментарии
@@ -69,11 +69,11 @@
 
     <div class="col-md-4">
       <div class="bg-div">
-        <div class="event-owner">
+        <div class="event-owner buffer-bottom">
           <h4>Зовет:</h4>
           <p><%= render partial: 'users/user', object: @event.user %></p>
         </div>
-        <div class="event-subscriptions">
+        <div class="event-subscriptions buffer-bottom">
           <h4>Пойдут:</h4>
           <div>
             <p>

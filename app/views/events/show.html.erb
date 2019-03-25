@@ -49,18 +49,20 @@
                      locals: {comment: @new_comment || @event.comments.build} %>
 
         </div>
-        <div class="buffer-both">
-          <button class="btn btn-link" data-toggle="collapse" href="#collapseComments" role="button"
-                  aria-expanded="false" aria-controls="collapseComments">
-            Показать комментарии
-          </button>
+        <% unless @event.comments.except(@new_comment).blank? %>
+          <div class="buffer-both">
+            <button class="btn btn-link" data-toggle="collapse" href="#collapseComments" role="button"
+                    aria-expanded="false" aria-controls="collapseComments">
+              Показать комментарии
+            </button>
 
-          <div class="collapse" id="collapseComments">
-            <%= render partial: 'comments/comment',
-                       collection: @event.comments.except(@new_comment) %>
+
+            <div class="collapse" id="collapseComments">
+              <%= render partial: 'comments/comment',
+                         collection: @event.comments.except(@new_comment) %>
+            </div>
           </div>
-
-        </div>
+        <% end %>
       </div>
     </div>
 
@@ -79,17 +81,17 @@
             </p>
           </div>
         </div>
-      </div>
-      <% if @event.user != current_user %>
-        <div class="event-subscription-form">
-          <h4>Я пойду:</h4>
-          <div>
-            <%= render partial: 'subscriptions/form', locals: {
-                subscription: @new_subscription || @event.subscriptions.build
-            } %>
+        <% if @event.user != current_user %>
+          <div class="event-subscription-form">
+            <h4>Я пойду:</h4>
+            <div>
+              <%= render partial: 'subscriptions/form', locals: {
+                  subscription: @new_subscription || @event.subscriptions.build
+              } %>
+            </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

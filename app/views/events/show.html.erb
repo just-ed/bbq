@@ -44,11 +44,6 @@
       </div>
 
       <div class="event-comments">
-        <div class="bg-div buffer-both">
-          <%= render partial: 'comments/form',
-                     locals: {comment: @new_comment || @event.comments.build} %>
-
-        </div>
         <% unless @event.comments.except(@new_comment).blank? %>
           <div class="buffer-both">
             <button class="btn btn-link" data-toggle="collapse" href="#collapseComments" role="button"
@@ -63,6 +58,12 @@
             </div>
           </div>
         <% end %>
+
+        <div class="bg-div buffer-both">
+          <%= render partial: 'comments/form',
+                     locals: {comment: @new_comment || @event.comments.build} %>
+
+        </div>
       </div>
     </div>
 

@@ -3,12 +3,8 @@
 <p><%= t '.email' %>: <b><%= link_to @email, "mailto:#{@email}" %></b></p>
 <hr/>
 
-<%= t '.event' %>
+<p><%= t '.event' %>: <b><%= @event.title %></b></p>
+<p><%= t '.author' %>: <b><%= l @event.datetime, format: :short %></b></p>
+<p><%= t '.owner' %>: <b><%= @event.user.name %></b></p>
 
-<h3><%= @event.title %></h3>
-
-<%= t '.author' %>
-<h4><%= l @event.datetime %></h4>
-
-<%= t '.owner' %>
-<h4><%= @event.user.name %></h4>
+<%= link_to 'Страница события', event_url(@event) %>

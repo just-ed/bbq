@@ -1,11 +1,3 @@
-<%= t '.title' %>
-----
-
-<%= @photo.photo.url %>
-
-<%= t '.author' %>: <%= @photo.user %>
-
---------------------------------
 <%= t '.event' %>: <%= @event.title %>
 <%= t '.datetime' %>: <%= l @event.datetime, format: :short %>
 <%= t '.owner' %>: <%= @event.user.name %>

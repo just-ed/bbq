@@ -1,13 +1,5 @@
-<h1><%= t '.title' %></h1>
-<p><%= link_to image_tag(@photo.photo.thumb.url), @photo.photo.url %></p>
-<p><%= t '.author' %>: <b><%= @photo.user.name %></b></p>
-
-<hr/>
-
 <p><%= t '.event' %>: <b><%= @event.title %></b></p>
-
 <p><%= t '.datetime' %>: <b><%= l @event.datetime, format: :short %></b></p>
-
 <p><%= t '.owner' %>: <b><%= @event.user.name %></b></p>
 
 <%= link_to 'Страница события', event_url(@event) %>

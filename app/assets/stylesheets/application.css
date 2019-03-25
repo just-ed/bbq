@@ -58,3 +58,9 @@
 textarea {
   resize: vertical;
 }
+
+.bg-div {
+  background: #f8f8f8;
+  border-radius: 10px;
+  padding: 10px;
+}

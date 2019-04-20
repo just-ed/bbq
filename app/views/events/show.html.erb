@@ -34,7 +34,7 @@
   <div class="row">
     <div class="col-md-8">
       <div class="event-photos bg-div">
-        <div class="event-photos-gallery">
+        <div class="event-photos-gallery buffer-bottom text-center">
           <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo) %>
         </div>
 
@@ -44,15 +44,15 @@
       </div>
 
       <div class="event-comments">
-        <% unless @event.comments.except(@new_comment).blank? %>
+        <% unless @event.comments.except(@new_comment).blank?%>
           <div class="bg-div buffer-top">
             <button class="btn btn-link" data-toggle="collapse" href="#collapseComments" role="button"
-                    aria-expanded="false" aria-controls="collapseComments">
-              Показать комментарии
+                    aria-expanded="true" aria-controls="collapseComments">
+              Скрыть комментарии
             </button>
 
 
-            <div class="collapse" id="collapseComments">
+            <div class="collapse in" id="collapseComments">
               <%= render partial: 'comments/comment',
                          collection: @event.comments.except(@new_comment) %>
             </div>

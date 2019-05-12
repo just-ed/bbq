@@ -1,6 +1,4 @@
-<%= form_for(@event) do |f| %>
-  <%= render partial: 'partials/form_errors', locals: {model: @event} %>
-
+<%= simple_form_for @event, validate: true do |f| %>
   <div class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title, class: 'form-control' %>
@@ -27,12 +25,12 @@
   </div>
 
   <div class="actions">
-    <%= f.submit 'Сохранить', class: 'buffer-bottom btn btn-primary' %>
+    <%= f.submit 'Сохранить', class: 'btn btn-primary' %>
     или <%= link_to 'вернуться', :back %>
   </div>
 
   <%= link_to 'Удалить событие', @event,
               :method => :delete,
               data: { confirm: t('destroy_confirm.event') },
-              class: 'buffer-both btn btn-danger' %>
+              class: 'btn btn-danger mt-5' %>
 <% end %>

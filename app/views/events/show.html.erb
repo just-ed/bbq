@@ -5,7 +5,7 @@
                       style: "background-image: url(#{event_photo(@event)})" %>
 
       <div class="event-info-inner row">
-        <div class="col-md-6">
+        <div class="col-md-6 pt-3">
           <div class="event-description">
             <h1><%= @event.title %></h1>
             <h3><%= l @event.datetime, format: :short %></h3>
@@ -14,14 +14,13 @@
           </div>
 
           <% if current_user_can_edit?(@event) %>
-            <div class="buffer-both">
-              <%= link_to 'Изменить', edit_event_path(@event),
-                          class: 'btn btn-primary' %>
+            <div>
+              <%= link_to 'Изменить', edit_event_path(@event), class: 'btn btn-primary' %>
             </div>
           <% end %>
         </div>
 
-        <div class="col-md-6 buffer-both">
+        <div class="col-md-6 py-3">
           <div id="map"
                data-address="<%= @event.address %>"
                style="width: 100%; height: 400px;">
@@ -33,33 +32,32 @@
 
   <div class="row">
     <div class="col-md-8">
-      <div class="event-photos bg-div">
-        <div class="event-photos-gallery buffer-bottom text-center">
+      <div class="event-photos pb-3 border-bottom">
+        <div class="event-photos-gallery text-center">
           <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo) %>
         </div>
 
-        <div class="event-photo-form">
+        <div class="event-photo-form pt-3">
           <%= render partial: 'photos/form', locals: {photo: @new_photo || @event.photos.build} %>
         </div>
       </div>
 
-      <div class="event-comments">
-        <% unless @event.comments.except(@new_comment).blank?%>
-          <div class="bg-div buffer-top">
-            <button class="btn btn-link" data-toggle="collapse" href="#collapseComments" role="button"
-                    aria-expanded="true" aria-controls="collapseComments">
+      <div class="event-comments my-3">
+        <% unless @event.comments.except(@new_comment).blank? %>
+          <div>
+            <button class="btn btn-link pl-0" data-toggle="collapse" href="#collapseComments" role="button">
               Скрыть комментарии
             </button>
 
 
-            <div class="collapse in" id="collapseComments">
+            <div class="collapse show" id="collapseComments">
               <%= render partial: 'comments/comment',
                          collection: @event.comments.except(@new_comment) %>
             </div>
           </div>
         <% end %>
 
-        <div class="bg-div buffer-both">
+        <div class="py-3 border-bottom">
           <%= render partial: 'comments/form',
                      locals: {comment: @new_comment || @event.comments.build} %>
 
@@ -68,12 +66,12 @@
     </div>
 
     <div class="col-md-4">
-      <div class="bg-div">
-        <div class="event-owner buffer-bottom">
+      <div class="pb-3 border-bottom">
+        <div class="event-owner">
           <h4>Зовет:</h4>
           <p><%= render partial: 'users/user', object: @event.user %></p>
         </div>
-        <div class="event-subscriptions buffer-bottom">
+        <div class="event-subscriptions">
           <h4>Пойдут:</h4>
           <div>
             <p>

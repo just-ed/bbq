@@ -1,7 +1,6 @@
 ru:
   app:
     name: 'Шашлыки'
-    company: 'Хороший программист'
   activerecord:
     models:
       user: 'Пользователь'

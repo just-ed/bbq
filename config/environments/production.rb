@@ -92,18 +92,19 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = {host: 'bbq2.herokuapp.com'}
+  config.action_mailer.default_url_options = {host: 'gobbq.site'}
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
 
   ActionMailer::Base.smtp_settings = {
-      :address        => 'smtp.sendgrid.net',
-      :port           => '587',
+      :tls        => true,
+      :address        => 'smtp.yandex.ru',
+      :port           => '465',
       :authentication => :plain,
-      :user_name      => ENV['SENDGRID_USERNAME'],
-      :password       => ENV['SENDGRID_PASSWORD'],
-      :domain         => 'heroku.com',
+      :user_name      => ENV['YANDEX_USERNAME'],
+      :password       => ENV['YANDEX_PASSWORD'],
+      :domain         => 'yandex.ru',
       :enable_starttls_auto => true
   }
 end

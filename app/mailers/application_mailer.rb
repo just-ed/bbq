@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'noreply@bbq2.herokuapp.com'
+  default from: 'hi@gobbq.site'
   layout 'mailer'
 end

@@ -33,4 +33,6 @@
 public/uploads
 config/credentials.yml.enc
 config/database.yml
+config/secrets.yml
 npm-debug.log
+yarn.lock

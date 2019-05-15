@@ -5,6 +5,7 @@ ruby '2.5.3'
 
 gem 'bootstrap'
 gem 'carrierwave'
+gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'simple_form'
 gem 'client_side_validations'
 gem 'client_side_validations-simple_form'
@@ -21,7 +22,6 @@ gem 'uglifier'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'dotenv-rails'
   gem 'sqlite3'
 end
 

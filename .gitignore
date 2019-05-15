@@ -36,3 +36,4 @@ config/database.yml
 config/secrets.yml
 npm-debug.log
 yarn.lock
+.env

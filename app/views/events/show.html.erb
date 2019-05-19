@@ -33,16 +33,20 @@
   <div class="row">
     <div class="col-md-8">
       <div class="event-photos pb-3 border-bottom">
-        <div class="event-photos-gallery text-center">
-          <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo) %>
-        </div>
+        <% unless @event.photos.except(@new_photo).blank? %>
+            <div class="event-photos-gallery pb-3">
+              <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo) %>
+            </div>
+        <% end %>
 
-        <div class="event-photo-form pt-3">
-          <%= render partial: 'photos/form', locals: {photo: @new_photo || @event.photos.build} %>
-        </div>
+        <% if policy(Event).create? %>
+          <div class="event-photo-form pb-3">
+            <%= render partial: 'photos/form', locals: {photo: @new_photo || @event.photos.build} %>
+          </div>
+        <% end %>
       </div>
 
-      <div class="event-comments my-3">
+      <div class="event-comments">
         <% unless @event.comments.except(@new_comment).blank? %>
           <div>
             <button class="btn btn-link pl-0" data-toggle="collapse" href="#collapseComments" role="button">
@@ -50,14 +54,14 @@
             </button>
 
 
-            <div class="collapse show" id="collapseComments">
+            <div class="collapse show pb-3" id="collapseComments">
               <%= render partial: 'comments/comment',
                          collection: @event.comments.except(@new_comment) %>
             </div>
           </div>
         <% end %>
 
-        <div class="py-3 border-bottom">
+        <div class="pb-3 border-bottom">
           <%= render partial: 'comments/form',
                      locals: {comment: @new_comment || @event.comments.build} %>
 

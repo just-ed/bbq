@@ -21,6 +21,7 @@ gem 'client_side_validations-simple_form'
 
 gem 'devise'
 gem 'pundit', '~> 1.1'
+gem 'pundit-matchers', '~> 1.6.0'
 
 gem 'devise-i18n'
 gem 'rails-i18n'
@@ -29,6 +30,7 @@ gem 'dotenv-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '~> 3.8'
   gem 'sqlite3'
 end
 

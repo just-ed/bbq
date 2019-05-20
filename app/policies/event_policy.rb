@@ -1,4 +1,8 @@
 class EventPolicy < ApplicationPolicy
+  def index?
+    true
+  end
+
   def show?
     true
   end
@@ -9,6 +13,10 @@ class EventPolicy < ApplicationPolicy
 
   def update?
     user_is_owner?(record)
+  end
+
+  def edit
+    update?
   end
 
   def destroy?

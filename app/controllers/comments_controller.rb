@@ -47,6 +47,6 @@ class CommentsController < ApplicationController
     all_emails = (event.subscriptions.map(&:user_email) + [event.user.email]).uniq
     all_emails -= [current_user.email] if current_user
 
-    all_emails.each { |mail| EventMailer.comment(event, comment, mail).deliver_now }
+    all_emails.each { |mail| EventMailer.comment(event, comment, mail).deliver_later }
   end
 end

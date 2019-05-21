@@ -16,6 +16,10 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: {maximum: 35}
 
+  def send_devise_notification(notification, *args)
+    devise_mailer.send(notification, self, *args).deliver_later
+  end
+
   private
 
   def link_subscriptions

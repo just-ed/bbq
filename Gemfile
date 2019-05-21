@@ -22,6 +22,7 @@ gem 'client_side_validations-simple_form'
 gem 'devise'
 gem 'pundit', '~> 1.1'
 gem 'pundit-matchers', '~> 1.6.0'
+gem 'resque', '~> 1.27'
 
 gem 'devise-i18n'
 gem 'rails-i18n'
@@ -40,6 +41,9 @@ group :development do
   gem 'capistrano-passenger'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
+  gem 'capistrano-resque', '~> 0.2.3', require: false
+
+  gem 'letter_opener'
 
   gem 'listen'
   gem 'web-console'

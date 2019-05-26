@@ -86,3 +86,8 @@ ru:
 
   pundit:
     not_authorized: 'Вам сюда нельзя!'
+
+  devise:
+    omniauth_callbacks:
+      success: 'Вы успешно залогинились через Facebook! :)'
+      failure: 'Что-то пошло не так :('

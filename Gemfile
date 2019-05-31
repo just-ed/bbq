@@ -22,6 +22,7 @@ gem 'client_side_validations-simple_form'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-vkontakte'
 
 gem 'pundit', '~> 1.1'
 gem 'pundit-matchers', '~> 1.6.0'

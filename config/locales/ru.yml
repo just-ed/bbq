@@ -89,5 +89,6 @@ ru:
 
   devise:
     omniauth_callbacks:
-      success: 'Вы успешно залогинились через Facebook! :)'
-      failure: 'Что-то пошло не так :('
+      success: 'Вы успешно залогинились через %{kind}! :)'
+      failure: 'Не получилось войти через %{kind} :('
+      profile_without_email: 'Не получилось войти, в Вашем профиле %{kind} не указан email :('

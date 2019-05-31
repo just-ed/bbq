@@ -9,7 +9,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: [:facebook]
+         :omniauthable, omniauth_providers: %i[facebook vkontakte]
 
   has_many :events
   has_many :comments, dependent: :destroy
@@ -23,8 +23,9 @@ class User < ApplicationRecord
 
   def self.find_for_facebook_oauth(access_token)
     email = access_token.info.email
-    user = where(email: email).first
+    return nil if email.nil?
 
+    user = find_by(email: email)
     return user if user.present?
 
     provider = access_token.provider
@@ -34,7 +35,25 @@ class User < ApplicationRecord
       user.email = email
       user.password = Devise.friendly_token.first(16)
       user.name = access_token.info.name
-      user.remote_avatar_url ="#{access_token.info.image.gsub('http', 'https')}?type=large"
+      user.remote_avatar_url = "#{access_token.info.image}?type=large"
+    end
+  end
+
+  def self.find_for_vkontakte_oauth(access_token)
+    email = access_token.info.email
+    return nil if email.nil?
+
+    user = find_by(email: email)
+    return user if user.present?
+
+    provider = access_token.provider
+    url = access_token.info.urls.Vkontakte
+
+    where(url: url, provider: provider).first_or_create! do |user|
+      user.email = email
+      user.password = Devise.friendly_token.first(16)
+      user.name = access_token.info.name
+      user.remote_avatar_url = access_token.extra.raw_info.photo_400_orig
     end
   end
 

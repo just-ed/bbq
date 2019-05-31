@@ -33,6 +33,7 @@ class User < ApplicationRecord
     where(url: url, provider: provider).first_or_create! do |user|
       user.email = email
       user.password = Devise.friendly_token.first(16)
+      user.name = access_token.info.name
       user.remote_avatar_url ="#{access_token.info.image.gsub('http', 'https')}?type=large"
     end
   end

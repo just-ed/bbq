@@ -224,8 +224,8 @@ GEM
     pg (1.1.4-x86-mingw32)
     popper_js (1.14.5)
     public_suffix (3.1.0)
-    puma (3.12.1)
-    puma (3.12.1-java)
+    puma (3.12.2)
+    puma (3.12.2-java)
     pundit (1.1.0)
       activesupport (>= 3.0.0)
     pundit-matchers (1.6.0)
@@ -396,7 +396,7 @@ DEPENDENCIES
   omniauth-vkontakte
   pg
   popper_js
-  puma (~> 3.11)
+  puma (~> 3.12)
   pundit (~> 1.1)
   pundit-matchers (~> 1.6.0)
   rails (~> 5.2.3)
